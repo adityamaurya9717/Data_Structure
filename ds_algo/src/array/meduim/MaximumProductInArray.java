@@ -2,6 +2,12 @@ package array.meduim;
 
 /**
  * 154 ) Maximum Product Subarray
+ *
+ * Note that The Arrays Contain Negative Number So we have to find out
+ * the maximum product with continious
+ *
+ *
+ * approach
  */
 public class MaximumProductInArray {
 

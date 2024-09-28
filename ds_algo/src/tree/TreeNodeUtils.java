@@ -10,7 +10,7 @@ public class TreeNodeUtils {
         );
         TreeNode root = null;
         for (Integer data : treeData){
-           root =insertInBst(root,data);
+           root =insertInBst(root,data,0);
         }
         System.out.println("In-order traversal of the constructed BST is: ");
         bfsPrint(root);
@@ -41,6 +41,24 @@ public class TreeNodeUtils {
         return node;
 
     }
+    public static TreeNode insertInBst(TreeNode node, int value,int height){
+
+        if(node==null){
+            TreeNode newNode = new TreeNode(value);
+            newNode.height = height;
+            return newNode;
+        }
+        else{
+            if(value < node.val){
+                node.left  = insertInBst(node.left, value,height+1);
+
+            }
+            else{
+                node.right = insertInBst(node.right, value,height+1);
+            }
+        }
+        return node;
+    }
 
     public static void printInOrder(TreeNode root) {
         if (root == null) {
@@ -59,7 +77,7 @@ public class TreeNodeUtils {
             int size = queue.size();
             for(int i=1 ; i<=size;i++){
                 TreeNode curr = queue.poll();
-                System.out.print(curr.val + " ");
+                System.out.print(curr.val + " and height=" + curr.height+", ");
                 if(curr.left!=null){
                     queue.add(curr.left);
                 }

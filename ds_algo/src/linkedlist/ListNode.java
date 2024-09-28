@@ -9,4 +9,12 @@ public class ListNode {
     public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 
 
+    /**
+     * count Node in linked list
+     * @param node
+     * @return
+     */
+    public static int countNodes(ListNode node) {
+        return NodeUtils.countNode(node);
+    }
 }

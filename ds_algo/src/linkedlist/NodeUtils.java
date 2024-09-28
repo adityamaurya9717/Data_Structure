@@ -17,6 +17,17 @@ public class NodeUtils {
 
     }
 
+    public static int countNode(ListNode head) {
+        ListNode temp = head;
+        int count = 0;
+        while(temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+
+    }
+
     public static ListNode getListNodes(){
         List<Integer> nums = Arrays.asList(1, 2, 3, 4,5,6,7,8);
         List<Integer> nums2 = Arrays.asList(10, 20, 30, 40,50,60,70,80);
@@ -138,7 +149,38 @@ public class NodeUtils {
         }
         return false;
     }
-    public void swapPairs(ListNode l1){
+
+    /**
+     * SWAP PAIRS
+     *  1->2->3->4->5->6
+     *  2->1->4->3->6->5
+     * @param l1
+     */
+    public void swapPairs(ListNode head){
+
+        if(head==null || head.next==null){
+            return;
+        }
+        ListNode current = head;
+        ListNode temp = head.next;
+        ListNode previous = null;
+
+        while(current!=null && current.next!=null){
+
+            ListNode next = current.next;
+
+            current.next = next.next;
+
+            next.next = current;
+            if(previous!=null){
+                previous.next = next;
+            }
+            previous = current;
+            current = current.next;
+
+
+
+        }
 
     }
 }

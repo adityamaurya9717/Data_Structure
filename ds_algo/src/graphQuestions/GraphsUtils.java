@@ -1,9 +1,8 @@
 package graphQuestions;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GraphsUtils {
 
@@ -44,5 +43,36 @@ public class GraphsUtils {
             }
         }
         return matrixGraph;
+    }
+
+    public static int[][]  convertEdgeListToMatrix(List<List<Integer>> edgeList){
+
+        Set<Integer> set = new HashSet<Integer>();
+        for (List<Integer> edge : edgeList){
+            set.add(edge.get(0));
+            set.add(edge.get(1));
+        }
+        int totalVertix = set.size();
+
+        int matrix[][] = new int[totalVertix][totalVertix];
+        for (List<Integer> edge : edgeList){
+            int u = edge.get(0);
+            int v = edge.get(1);
+            matrix[u][v] = 1;
+        }
+        return matrix;
+
+    }
+    public static Map<Integer,List<Integer>> convertMatrixToEdgeList(int[][] matrix){
+
+        Map<Integer,List<Integer>> mapGraph = new HashMap();
+        for (int u=0; u<matrix.length; u++){
+            for(int v=0;v<matrix.length;v++){
+                if(matrix[u][v] == 1){
+                    mapGraph.computeIfAbsent(u,k->new ArrayList<>()).add(v);
+                }
+            }
+        }
+        return mapGraph;
     }
 }
