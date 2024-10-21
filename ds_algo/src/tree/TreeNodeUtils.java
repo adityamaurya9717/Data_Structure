@@ -93,9 +93,54 @@ public class TreeNodeUtils {
         TreeNode root = null;
         if (!list.isEmpty()) {
             root = new TreeNode(list.get(0));
-            root.left = createBinaryTree(list.subList(1, (list.size() + 1) / 2));
-            root.right = createBinaryTree(list.subList((list.size() + 1) / 2, list.size()));
+            if(root!=null) {
+                root.left = createBinaryTree(list.subList(1, (list.size() + 1) / 2));
+                root.right = createBinaryTree(list.subList((list.size() + 1) / 2, list.size()));
+            }
         }
+        return root;
+    }
+
+    /**
+     * [3,5,1,6,2,0,8,null,null,7,4]
+     * 1 2 4 8 16 32 62
+     * 2^0, 2^1 , 2^2 , 2^3 , 2^4
+     * @param list
+     * @param bfs
+     * @return
+     */
+    public static TreeNode createBinaryTree(List<Integer> list,boolean bfs) {
+        TreeNode root = null;
+        int height = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(new TreeNode(list.get(0)));
+        int start= 1;
+        int end = 2;
+
+        while( !queue.isEmpty() ){
+            int len = queue.size();
+            for( int i = 0; i < len; i++ ){
+                TreeNode pop = queue.poll();
+                for(int k=start;k<=start+1;k++){
+                    pop.left = new TreeNode(list.get(k));
+                    pop.right = new TreeNode(list.get(k));
+                }
+
+
+
+            }
+
+        }
+
+        for(int i=0;i<list.size();i++){
+            if(i==0){
+                root = new TreeNode(list.get(i));
+                continue;
+            }
+
+        }
+
+
         return root;
     }
     // is Both Tree Identical

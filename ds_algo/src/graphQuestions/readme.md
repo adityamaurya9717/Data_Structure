@@ -9,12 +9,15 @@
  ) Kruskal's Algorithm 
  ) Dijkstra's Algorithm 
  ) Floyd Warshall Algorithm 
+ ) Kahn Algorithm ( Topological Sort BFS ) 
+ ) Topological Sort BFS
 
 ```  
 # Question in Graph Traversal  
 ```
 a) Detect Whether A Graph in Tree Or Not 
-b) Is A Graph Contain Cycle  
+b) Is A Graph Contain Cycle in Acyclic Graph (DFS)
+c) Is A Graph Contain Cycle in Acyclic Graph ( BFS )  
 c)
 ```
 <img class="rounded-circle" alt="avatar1" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
